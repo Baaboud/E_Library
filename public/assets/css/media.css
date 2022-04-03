@@ -1,0 +1,253 @@
+@media screen and (max-width: 1080px) {
+    .search-tags {
+        display: none !important;
+    }
+
+    .top-bar i {
+        display: none;
+    }
+
+    .top-links {
+        display: block;
+    }
+
+    #news {
+        display: flex;
+        justify-content: space-around;
+        justify-items: center;
+    }
+
+    #news h3 {
+        border: none;
+        display: inline-block;
+        margin: auto 0;
+        flex-grow: 1;
+    }
+
+    #news form {
+        flex-grow: 3;
+        flex-direction: row;
+        justify-content: space-around;
+        background-color: #333;
+    }
+
+    #news form input {
+        width: 70%;
+    }
+
+    .footer-lists {
+        flex-wrap: wrap;
+    }
+
+    .footer-lists li {
+        display: none;
+    }
+
+    .footer-lists>div {
+        width: 50%;
+    }
+
+    .contact {
+        position: static;
+    }
+
+    .shopping-cart {
+        padding: 20px;
+    }
+
+    /* Details Page */
+    .book-info {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .book-info>div {
+        width: 70% !important;
+    }
+
+    .confirm {
+        width: 80% !important;
+    }
+
+    .progress {
+        margin-top: 50px;
+    }
+
+    .wrap {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 5px !important;
+    }
+
+    .wrap select {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 860px) {
+    .register {
+        flex-direction: column;
+        overflow-y: scroll;
+    }
+
+    .register>div {
+        width: 100% !important;
+    }
+
+    .sign-up {
+        width: 100%;
+    }
+
+    .log-in {
+        width: 100%;
+    }
+
+    .top-bar {
+        display: none;
+        position: fixed;
+        right: 0px;
+        left: 0px;
+        width: 100%;
+        height: 100vh;
+        background-color: #fff;
+        z-index: 11;
+    }
+
+    .top-bar .row {
+        flex-direction: column;
+        margin-top: 80px;
+    }
+
+    .header-main {
+        justify-content: center;
+        margin: 10px 10px;
+        padding-top: 8px;
+    }
+
+    .top-bar i {
+        display: inline;
+    }
+
+    .header-main .list {
+        display: inline-block;
+    }
+
+    #search-form {
+        margin: 0 5px;
+    }
+
+    #logo {
+        height: 40px;
+    }
+
+    .header-main i {
+        font-size: 14px;
+    }
+
+    #news h3 {
+        display: none;
+    }
+
+    .footer-lists>div {
+        width: 100%;
+    }
+
+    .contact {
+        width: 100%;
+        display: flex;
+        ;
+        justify-content: space-between;
+    }
+
+    .footer-bottom ul {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+    }
+
+    .footer-bottom div {
+        margin-top: 10px;
+        text-align: center;
+    }
+
+    .shopping-cart {
+        flex-direction: column;
+        width: 100%;
+        align-items: center;
+    }
+
+    .cart-body {
+        width: 100% !important;
+        padding: 20px;
+    }
+
+    .cart-price {
+        width: 100% !important;
+        padding: 20px;
+    }
+
+    .product .row {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .product img {
+        width: 200px !important;
+        margin-bottom: 20px !important;
+    }
+
+    /* Category page */
+
+    .category-header, .category-body {
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: center;
+    }
+
+    .filter {
+        width: 50% !important;
+    }
+
+    .category-header {
+        flex-direction: column-reverse;
+        align-items: center;
+    }
+
+    .front .confirm {
+        width: 100% !important;
+    }
+
+    .steps input {
+        width: 90% !important;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    #news form {
+        padding: 0px !important;
+    }
+
+    #news input {
+        font-size: 20px !important;
+        width: 150px !important;
+        margin-left: 15px;
+    }
+
+    /* Details Page */
+
+    .book-info>div {
+        width: 90% !important;
+    }
+
+    /* Checkout Page */
+    .shopping-cart {
+        padding: 0px;
+    }
+
+    .filter {
+        width: 90% !important;
+    }
+}
