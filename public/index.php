@@ -23,27 +23,12 @@ $config=array(
 );
 $system=new AppSystem($config);
 
-/** Home routes */
-Router::get('/', [HomeController::class, 'index']);
-Router::get('/details', [HomeController::class, 'details']);
-Router::get('/checkout', [HomeController::class, 'checkout']);
-Router::get('/category', [HomeController::class, 'category']);
-Router::get('/dashboard', [HomeController::class, 'dash']);
-
 /** web routes  */
-Router::get('/categories',[CategoriesController::class,'listAll']);
-Router::get('/add_category',[CategoriesController::class,'create']);
-Router::get('/edit_category/{id}',[CategoriesController::class,'edit']);
-Router::get('/remove_category/{id}/{name}',[CategoriesController::class,'remove']);
-Router::post('/save_category',[CategoriesController::class,'store']);
-Router::post('/update_category',[CategoriesController::class,'update']);
-
-/** offer routes  */
-Router::get('/offers',[OffersController::class,'listAll']);
-Router::get('/add_offer',[OffersController::class,'create']);
-Router::get('/edit_offer/{id}',[OffersController::class,'edit']);
-Router::get('/remove_offer/{id}/{name}',[OffersController::class,'remove']);
-Router::post('/save_offer',[OffersController::class,'store']);
-Router::post('/update_offer',[OffersController::class,'update']);
+Router::get('/',[AuthorsController::class,'listAll']);
+Router::get('/add_author',[AuthorsController::class,'create']);
+Router::get('/edit_author/{id}',[AuthorsController::class,'edit']);
+Router::get('/remove_author/{id}/{name}',[AuthorsController::class,'remove']);
+Router::post('/save_author',[AuthorsController::class,'store']);
+Router::post('/update_author',[AuthorsController::class,'update']);
 
 $system->start();
