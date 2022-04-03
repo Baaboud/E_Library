@@ -2,10 +2,11 @@
 
 namespace coding\app\models;
 
-class Category extends Model{
+class Publisher extends Model{
     function __construct()
     {
-        parent::$tblName="categories";
+
+        parent::$tblName="publisher";
     }
 }
 ?>

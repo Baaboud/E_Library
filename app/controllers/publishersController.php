@@ -2,44 +2,44 @@
 
 namespace coding\app\controllers;
 
-use coding\app\models\Category;
+use coding\app\models\Publisher;
 
-class CategoriesController extends Controller{
+class PublishersController extends Controller{
 
     function listAll($parameters=null){
 
         $parameters['status'];
-        $categories=new Category();
-        $allCategories=$categories->getAll();
-        //print_r($allCategories);
+        $publishers=new Publisher();
+        $allPublishers=$publishers->getAll();
+        //print_r($allPublishers);
 
-        $this->view('list_categories',$allCategories);
+        $this->view('list_publishers',$allPublishers);
 
     }
     function create(){
-        $this->view('add_category');
+        $this->view('add_publisher');
     }
 
     function store(){
         print_r($_POST);
         print_r($_FILES);
-        $category=new Category();
+        $publisher=new Publisher();
         
-        $category->name=$_POST['category_name'];
+        $publisher->name=$_POST['publisher_name'];
         $imageName=$this->uploadFile($_FILES['image']);
 
-        $category->image=$imageName!=null?$imageName:"default.png";
-        $category->created_by=1;
-        $category->is_active=$_POST['is_active'];
+        $publisher->image=$imageName!=null?$imageName:"default.png";
+        $publisher->created_by=1;
+        $publisher->is_active=$_POST['is_active'];
 
-        $category->save();
+        $publisher->save();
 
     }
     function edit($params=[]){
 
-        $cat=new Category();
+        $cat=new Publisher();
         $result=$cat->getSingleRow($params['id']);
-        $this->view('edit_category',$result);
+        $this->view('edit_publisher',$result);
     }
     function update(){
 

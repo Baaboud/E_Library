@@ -23,5 +23,13 @@ class OffersController extends Controller{
         }
         print_r($_POST);
     }
+
+    function edit($params=[]){
+    }
+    function update(){
+
+    }
+    public function remove($params=[]){
+    }
 }
 ?>

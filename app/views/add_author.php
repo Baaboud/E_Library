@@ -1,10 +1,6 @@
 <!DOCTYPE html>
 
 
-<?php echo dirname(__DIR__);?>
-
-
-
 <!-- =========================================================
 * Sneat - Bootstrap 5 HTML Admin Template - Pro | v1.0.0
 ==============================================================
@@ -17,7 +13,7 @@
 =========================================================
  -->
 <!-- beautify ignore:start -->
-<html lang="en" class="light-style layout-navbar-fixed layout-menu-fixed " dir="ltr" data-theme="theme-semi-dark" data-../../assets-path="../../assets/" data-template="vertical-menu-template-semi-dark">
+<html lang="en" class="light-style layout-navbar-fixed layout-menu-fixed " dir="ltr" data-theme="theme-semi-dark" data-assets-path="../../assets/" data-template="vertical-menu-template-semi-dark">
 
   
 <!-- form-layouts-vertical.html , Sat, 26 Mar 2022 16:53:12 GMT -->
@@ -25,7 +21,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
 
-    <title> Vertical Layouts - Forms | Sneat - Bootstrap 5 HTML Admin Template - Pro</title>
+    <title> Add Author</title>
     
     <meta name="description" content="Most Powerful &amp; Comprehensive Bootstrap 5 HTML Admin Dashboard Template built for developers!" />
     <meta name="keywords" content="dashboard, bootstrap 5 dashboard, bootstrap 5 design, bootstrap 5">
@@ -33,7 +29,7 @@
     <link rel="canonical" href="https://themeselection.com/products/sneat-bootstrap-html-admin-template/">
     
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="https://demos.themeselection.com/sneat-bootstrap-html-admin-template/../../assets/img/favicon/favicon.ico" />
+    <link rel="icon" type="image/x-icon" href="https://demos.themeselection.com/sneat-bootstrap-html-admin-template/assets/img/favicon/favicon.ico" />
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com/">
@@ -95,13 +91,11 @@
 
 
 
-  
-  
-      <!-- Menu -->
+<!-- Menu -->
+<?= include('aside.php') ?>
+<!-- / Menu -->
 
-      <?php include("aside.php");?>
-      <!-- / Menu -->
-
+    
 
     <!-- Layout container -->
     <div class="layout-page">
@@ -577,34 +571,42 @@
           <div class="container-xxl flex-grow-1 container-p-y">
             
             
-<h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Forms/</span> Vertical Layouts</h4>
+<h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light"></span> Author Form </h4>
 
-
-
-
-<!-- Multi Column with Form Separator -->
-<div class="card mb-4">
-  <h5 class="card-header">انشاء قسم جديد</h5>
-  <form class="card-body" action="/save_category" method="POST" enctype="multipart/form-data">
-    
-    <div class="row g-3">
-      <div class="col-md-6">
-        <label class="form-label" for="multicol-username">اسم القسم</label>
-        <input name="category_name" type="text" id="multicol-username" class="form-control" placeholder="john.doe" />
+<!-- Basic Layout -->
+<div class="row">
+  <div class="col-xl">
+    <div class="card mb-4">
+      <div class="card-header d-flex justify-content-between align-items-center">
+        <h5 class="mb-0">New Author</h5> <small class="text-muted float-end"></small>
       </div>
-      <div class="col-md-6">
-        <label class="form-label" for="multicol-email">صورة القسم</label>
-        <div class="input-group input-group-merge">
-          <input  name="image" type="file"  class="form-control"  aria-describedby="multicol-email2" />
+      <div class="card-body">
+
+        <form action="/save_author" method="POST">
+
+        
+          <div class="mb-3">
+            <label class="form-label" for="basic-default-fullname">Author Name</label>
+            <input type="text" name="name" class="form-control" id="basic-default-fullname" placeholder="Author Name" />
+          </div>
           
-        </div>
-      </div>
-      
-      <div class="col-md-6">
-        <div class="form-password-toggle">
-          <label class="form-label" for="multicol-confirm-password">تفعيل القسم</label>
-          <div class="input-group input-group-merge">
-          <label class="switch">
+          <div class="mb-3">
+            <label class="form-label" for="basic-default-email">Email</label>
+            <div class="input-group input-group-merge">
+              <input type="text" name="email" id="basic-default-email" class="form-control"  aria-describedby="basic-default-email2" placeholder="@example.com" />
+              <span class="input-group-text" id="basic-default-email2" ></span>
+            </div>
+            <div class="form-text"> You can use letters, numbers & periods </div>
+          </div>
+          <div class="mb-3">
+            <label class="form-label" for="basic-default-phone">Phone No</label>
+            <input type="text" name="phone" id="basic-default-phone" class="form-control phone-mask" placeholder="658 799 8941" />
+          </div>
+          <div class="mb-3">
+            <label class="form-label" for="basic-default-message">bio</label>
+            <textarea id="basic-default-message" name="bio" class="form-control" placeholder="Hi, Do you have a moment to talk Joe?"></textarea>
+          </div>
+          <label class="switch mb-3">
               <input name="is_active" value=1 type="checkbox" checked class="switch-input" />
               <span class="switch-toggle-slider">
                 <span class="switch-on"></span>
@@ -612,20 +614,13 @@
               </span>
               <span class="switch-label">is active</span>
             </label>
-          </div>
-        </div>
+            <br>
+          <button type="submit" class="btn btn-primary">Save</button>
+          <button type="submit" class="btn btn-secondary">Edite</button>
+        </form>
       </div>
     </div>
-    
-    
-    <div class="pt-4">
-      <button type="submit" class="btn btn-primary me-sm-3 me-1">Submit</button>
-      <button type="reset" class="btn btn-label-secondary">Cancel</button>
-    </div>
-  </form>
-</div>
-
-
+  </div>
 
 
 
@@ -643,7 +638,6 @@
       © <script>
       document.write(new Date().getFullYear())
       </script>
-      , made with ❤️ by <a href="https://themeselection.com/" target="_blank" class="footer-link fw-bolder">ThemeSelection</a>
     </div>
     <div>
       
@@ -681,15 +675,13 @@
   <!-- / Layout wrapper -->
 
   
-  <div class="buy-now">
-    <a href="https://themeselection.com/products/sneat-bootstrap-html-admin-template/" target="_blank" class="btn btn-danger btn-buy-now">Buy Now</a>
-  </div>
+  
   
 
   
 
   <!-- Core JS -->
-  <!-- build:js ../../assets/vendor/js/core.js -->
+  <!-- build:js assets/vendor/js/core.js -->
   <script src="../../assets/vendor/libs/jquery/jquery.js"></script>
   <script src="../../assets/vendor/libs/popper/popper.js"></script>
   <script src="../../assets/vendor/js/bootstrap.js"></script>

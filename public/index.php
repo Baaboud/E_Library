@@ -25,7 +25,7 @@ $system=new AppSystem($config);
 
 /** Home routes */
 Router::get('/', [HomeController::class, 'index']);
-Router::get('/details', [HomeController::class, 'details']);
+Router::get('/sit/details', [HomeController::class, 'details']);
 Router::get('/checkout', [HomeController::class, 'checkout']);
 Router::get('/category', [HomeController::class, 'category']);
 Router::get('/dashboard', [HomeController::class, 'dash']);

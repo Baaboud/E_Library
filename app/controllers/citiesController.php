@@ -2,44 +2,44 @@
 
 namespace coding\app\controllers;
 
-use coding\app\models\Category;
+use coding\app\models\City;
 
-class CategoriesController extends Controller{
+class CitiesController extends Controller{
 
     function listAll($parameters=null){
 
         $parameters['status'];
-        $categories=new Category();
-        $allCategories=$categories->getAll();
-        //print_r($allCategories);
+        $cities=new City();
+        $allCities=$cities->getAll();
+        //print_r($allCities);
 
-        $this->view('list_categories',$allCategories);
+        $this->view('list_cities',$allCities);
 
     }
     function create(){
-        $this->view('add_category');
+        $this->view('add_city');
     }
 
     function store(){
         print_r($_POST);
         print_r($_FILES);
-        $category=new Category();
+        $city=new City();
         
-        $category->name=$_POST['category_name'];
+        $city->name=$_POST['city_name'];
         $imageName=$this->uploadFile($_FILES['image']);
 
-        $category->image=$imageName!=null?$imageName:"default.png";
-        $category->created_by=1;
-        $category->is_active=$_POST['is_active'];
+        $city->image=$imageName!=null?$imageName:"default.png";
+        $city->created_by=1;
+        $city->is_active=$_POST['is_active'];
 
-        $category->save();
+        $city->save();
 
     }
     function edit($params=[]){
 
-        $cat=new Category();
+        $cat=new City();
         $result=$cat->getSingleRow($params['id']);
-        $this->view('edit_category',$result);
+        $this->view('edit_city',$result);
     }
     function update(){
 

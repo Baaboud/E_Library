@@ -25,7 +25,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
 
-    <title> Vertical Layouts - Forms | Sneat - Bootstrap 5 HTML Admin Template - Pro</title>
+    <title> Add Offers</title>
     
     <meta name="description" content="Most Powerful &amp; Comprehensive Bootstrap 5 HTML Admin Dashboard Template built for developers!" />
     <meta name="keywords" content="dashboard, bootstrap 5 dashboard, bootstrap 5 design, bootstrap 5">
@@ -55,7 +55,9 @@
     <link rel="stylesheet" href="assets/vendor/libs/typeahead-js/typeahead.css" />
     <link rel="stylesheet" href="assets/vendor/libs/flatpickr/flatpickr.css" />
 <link rel="stylesheet" href="assets/vendor/libs/select2/select2.css" />
-
+<link rel="stylesheet" href="../../assets/vendor/libs/bootstrap-select/bootstrap-select.css" />
+<link rel="stylesheet" href="../../assets/vendor/libs/tagify/tagify.css" />
+<link rel="stylesheet" href="../../assets/vendor/libs/typeahead-js/typeahead.css" />
     <!-- Page CSS -->
     
     <!-- Helpers -->
@@ -577,105 +579,63 @@
           <div class="container-xxl flex-grow-1 container-p-y">
             
             
-<h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Forms/</span> Vertical Layouts</h4>
+<h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light"></span>العروض</h4>
 
 
 
 
 <!-- Multi Column with Form Separator -->
 <div class="card mb-4">
-  <h5 class="card-header">انشاء   عرض  جديد</h5>
-  <form class="card-body" action="/save_offer" method="POST" enctype="multipart/form-data">
+  <h5 class="card-header">انشاء عرض جديد</h5>
+  <form class="card-body" action="/save_offer" method="POST" >
     
     <div class="row g-3">
       <div class="col-md-6">
-        <label class="form-label" for="multicol-username">اسم العرض</label>
-        <input name="category_name" type="text" id="multicol-username" class="form-control" placeholder="john.doe" />
+        <label class="form-label" for="multicol-username">عنوان العرض </label>
+        <input name="title" type="text" id="multicol-username" class="form-control" placeholder="john.doe" />
       </div>
-      <div class="col-md-3">
-        <label class="form-label" for="multicol-email">تاريخ بداية العرض</label>
-        <div class="col-md-10">
-            <input class="form-control" type="date" value="2021-06-18" id="html5-date-input" />
-          </div>
-      </div>
-      <div class="col-md-3">
-        <label class="form-label" for="multicol-email">تاريخ نهاية العرض</label>
-        <div class="col-md-10">
-            <input class="form-control" type="date" value="2021-06-18" id="html5-date-input" />
-          </div>
-      </div>
-      
-      
-    </div>
-    <div class="row g-3">
-
-    <div class="form-check form-check-inline">
-              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" />
-              <label class="form-check-label" for="inlineRadio2">حسب الكتاب</label>
-            </div>
-            <div class="form-check form-check-inline">
-              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" />
-              <label class="form-check-label" for="inlineRadio2">حسب القسم</label>
-            </div>
-            <div class="form-check form-check-inline">
-              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" />
-              <label class="form-check-label" for="inlineRadio2">الكل</label>
-            </div>
-
-    </div>
-
-
-
-    <?php 
-        for($i=0;$i<10;$i++){
-            echo "<p class='remove' data-id=$i>click here</p>";
-        }
-    ?>
-    <div class="row g-3">
-      <div class="col-md-4">
-        <label class="form-label" for="multicol-username">الكتب المحددة</label>
-        <div class="row mb-3 select2-primary">
+      <div class="col-md-6">
+        <label class="form-label" for="multicol-email">الخصم </label>
+        <div class="input-group input-group-merge">
+          <input  name="discount" type="text"  class="form-control"  aria-describedby="multicol-email2" />
           
-          <div class="col-sm-9">
-            <select  name="selected_books[]"disabled id="multicol-language" class="select2 form-select" multiple>
-              <option value="en" selected>English</option>
-              <option value="fr" selected>French</option>
-              <option value="de">German</option>
-              <option value="pt">Portuguese</option>
-            </select>
-          </div>
         </div>
       </div>
-      <div class="col-md-4">
-        <label class="form-label" for="multicol-username">الكتب المحددة</label>
-        <div class="row mb-3 select2-primary">
-          
-          <div class="col-sm-9">
-            <select  name="selected_cats" disabled id="multicol-language" class="select2 form-select" multiple>
-             
-    <?php
-    foreach($params['categories'] as $cats){ ?>
-<option value="<?= $cats['id'];?>"><?= $cats['name'] ;?></option>
+      <div class="col-md-6"> 
+      <label class="form-label" for="multicol-email">الاقسام</label>
 
-   <?php  } 
-    ?>
+      <select id="select2Multiple" name="category-select" class="select2 form-select" multiple>
+              <optgroup label="الاقسام">
+                <?php foreach($params["categories"] as $cata){   ?>
+                <option value=<?php echo $cata["id"] ;?>><?php echo $cata['name'];?></option>
+              <?php } ?>
+              </optgroup>
+      </select>
+              </div>  
+      
+     <!-- <div class="col-md-6">   
+      <label class="form-label" for="multicol-email">الاقسام</label>
 
-
-            </select>
-          </div>
+      <select id="select2Multiple" class="select2 form-select" multiple>
+              <optgroup label="Alaskan/Hawaiian Time Zone">
+                <option value="AK">ش</option>
+                <option value="HI">ب</option>
+              </optgroup>
+      </select>
+     </div>   -->
+      
+      <div class="col-md-6">
+        <label class="form-label" for="multicol-email">تاريخ بداية العرض </label>
+        <div class="input-group input-group-merge">
+          <input  name="start_date" type="date"  class="form-control"  aria-describedby="multicol-email2" />
         </div>
       </div>
-      <div class="col-md-3">
-        <label class="form-label" for="multicol-email">تاريخ بداية العرض</label>
-        <div class="col-md-10">
-            <input class="form-control" type="date" value="2021-06-18" id="html5-date-input" />
-          </div>
-      </div>
-      <div class="col-md-3">
-        <label class="form-label" for="multicol-email">تاريخ نهاية العرض</label>
-        <div class="col-md-10">
-            <input class="form-control" type="date" value="2021-06-18" id="html5-date-input" />
-          </div>
+
+      <div class="col-md-6">
+        <label class="form-label" for="multicol-email">تاريخ نهاية  العرض </label>
+        <div class="input-group input-group-merge">
+          <input  name="end_date" type="date"  class="form-control"  aria-describedby="multicol-email2" />
+        </div>
       </div>
       
       <div class="col-md-6">
@@ -721,7 +681,6 @@
       © <script>
       document.write(new Date().getFullYear())
       </script>
-      , made with ❤️ by <a href="https://themeselection.com/" target="_blank" class="footer-link fw-bolder">ThemeSelection</a>
     </div>
     <div>
       
@@ -759,9 +718,7 @@
   <!-- / Layout wrapper -->
 
   
-  <div class="buy-now">
-    <a href="https://themeselection.com/products/sneat-bootstrap-html-admin-template/" target="_blank" class="btn btn-danger btn-buy-now">Buy Now</a>
-  </div>
+  
   
 
   
@@ -792,16 +749,12 @@
 
   <!-- Page JS -->
   <script src="assets/js/form-layouts.js"></script>
-<script>
+  <script src="../../assets/js/forms-selects.js"></script>
+<script src="../../assets/js/forms-tagify.js"></script>
+<script src="../../assets/js/forms-typeahead.js"></script>
+<script src="../../assets/vendor/libs/bootstrap-select/bootstrap-select.js"></script>
+<script src="../../assets/vendor/libs/typeahead-js/typeahead.js"></script>
 
-    $(document).ready(function(){
-
-
-     
-        
-
-    });
-</script>  
 </body>
 
 

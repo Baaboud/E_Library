@@ -25,7 +25,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
 
-    <title> Vertical Layouts - Forms | Sneat - Bootstrap 5 HTML Admin Template - Pro</title>
+    <title>  list payment</title>
     
     <meta name="description" content="Most Powerful &amp; Comprehensive Bootstrap 5 HTML Admin Dashboard Template built for developers!" />
     <meta name="keywords" content="dashboard, bootstrap 5 dashboard, bootstrap 5 design, bootstrap 5">
@@ -584,13 +584,13 @@
             <!-- Multi Column with Form Separator -->
             <!-- Bordered Table -->
 <div class="card">
-  <h5 class="card-header">Bordered Table</h5>
+  <h5 class="card-header">ادارة الدفع </h5>
   <div class="card-body">
     <div class="table-responsive text-nowrap">
       <table class="table table-bordered">
         <thead>
           <tr>
-            <th>اسم القسم</th>
+            <th>اسم الطريقة</th>
             <th>الصورة</th>
             <th>الحالة</th>
             
@@ -600,15 +600,15 @@
         <tbody>
        
          
-         <?php foreach($params as $category){?>
+         <?php foreach($params as $payment){?>
           <tr>
             
-            <td><?= $category['name'];?> </td>
+            <td><?= $payment['name'];?> </td>
             <td>
-              <img class="img-fluid rounded" height="150px" width="150px" src="images/<?= $category['image'];?>">
+              <img class="img-fluid rounded" height="150px" width="150px" src="images/<?= $payment['image'];?>">
             </td>
             <td>
-            <?php if($category['is_active']==1) {?>    
+            <?php if($payment['is_active']==1) {?>    
             <span class="badge bg-label-success me-1">مفعل</span>
             <?php }
             else {?>
@@ -683,7 +683,6 @@
   <!-- / Layout wrapper -->
 
 
-  
 
 
 

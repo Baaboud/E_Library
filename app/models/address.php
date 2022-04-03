@@ -2,10 +2,10 @@
 
 namespace coding\app\models;
 
-class Category extends Model{
+class Address extends Model{
     function __construct()
     {
-        parent::$tblName="categories";
+        parent::$tblName="user_addresses";
     }
 }
 ?>

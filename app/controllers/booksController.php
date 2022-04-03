@@ -2,44 +2,44 @@
 
 namespace coding\app\controllers;
 
-use coding\app\models\Category;
+use coding\app\models\Book;
 
-class CategoriesController extends Controller{
+class BooksController extends Controller{
 
     function listAll($parameters=null){
 
         $parameters['status'];
-        $categories=new Category();
-        $allCategories=$categories->getAll();
+        $books=new Book();
+        $allBooks=$books->getAll();
         //print_r($allCategories);
 
-        $this->view('list_categories',$allCategories);
+        $this->view('list_categories',$allBooks);
 
     }
     function create(){
-        $this->view('add_category');
+        $this->view('add_book');
     }
 
     function store(){
         print_r($_POST);
         print_r($_FILES);
-        $category=new Category();
+        $book=new Book();
         
-        $category->name=$_POST['category_name'];
+        $book->name=$_POST['book_name'];
         $imageName=$this->uploadFile($_FILES['image']);
 
-        $category->image=$imageName!=null?$imageName:"default.png";
-        $category->created_by=1;
-        $category->is_active=$_POST['is_active'];
+        $book->image=$imageName!=null?$imageName:"default.png";
+        $book->created_by=1;
+        $book->is_active=$_POST['is_active'];
 
-        $category->save();
+        $book->save();
 
     }
     function edit($params=[]){
 
-        $cat=new Category();
+        $cat=new Book();
         $result=$cat->getSingleRow($params['id']);
-        $this->view('edit_category',$result);
+        $this->view('edit_book',$result);
     }
     function update(){
 

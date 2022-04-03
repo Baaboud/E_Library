@@ -25,8 +25,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
 
-    <title> Vertical Layouts - Forms | Sneat - Bootstrap 5 HTML Admin Template - Pro</title>
-    
+<title>list books</title>    
     <meta name="description" content="Most Powerful &amp; Comprehensive Bootstrap 5 HTML Admin Dashboard Template built for developers!" />
     <meta name="keywords" content="dashboard, bootstrap 5 dashboard, bootstrap 5 design, bootstrap 5">
     <!-- Canonical SEO -->
@@ -576,7 +575,7 @@
           <div class="container-xxl flex-grow-1 container-p-y">
 
 
-            <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Forms/</span> Vertical Layouts</h4>
+            <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light"></span> الكتب</h4>
 
            
 
@@ -584,14 +583,19 @@
             <!-- Multi Column with Form Separator -->
             <!-- Bordered Table -->
 <div class="card">
-  <h5 class="card-header">Bordered Table</h5>
+  <h5 class="card-header">قائمة الكتب</h5>
   <div class="card-body">
     <div class="table-responsive text-nowrap">
       <table class="table table-bordered">
         <thead>
           <tr>
-            <th>اسم القسم</th>
+            <th>اسم الكتاب</th>
+            <th>وصف الكتاب</th>
             <th>الصورة</th>
+            <th>عدد الصفحات</th>
+            <th>الصيغة</th>
+            <th>الكمية</th>
+            <th>السعر</th>
             <th>الحالة</th>
             
             <th>العمليات</th>
@@ -600,15 +604,20 @@
         <tbody>
        
          
-         <?php foreach($params as $category){?>
+         <?php foreach($params as $book){?>
           <tr>
             
-            <td><?= $category['name'];?> </td>
+            <td><?= $book['title'];?> </td>
+            <td><?= $book['description'] ?></td>
             <td>
-              <img class="img-fluid rounded" height="150px" width="150px" src="images/<?= $category['image'];?>">
+              <img class="img-fluid rounded" height="150px" width="150px" src="images/<?= $book['image'];?>">
             </td>
+            <td><?= $book['pages_number'];?></td>
+            <td><?= $book['format'];?></td>
+            <td><?= $book['quantity']?></td>
+            <td><?= $book['price']?></td>
             <td>
-            <?php if($category['is_active']==1) {?>    
+            <?php if($book['is_active']==1) {?>    
             <span class="badge bg-label-success me-1">مفعل</span>
             <?php }
             else {?>
@@ -616,7 +625,7 @@
             <?php } ?>
             </td>
             <td>
-            <a href="/edit_category/<?php echo $category['id'];?>" class="btn btn-icon btn-outline-dribbble">
+            <a href="/edit_book/<?php echo $book['id'];?>" class="btn btn-icon btn-outline-dribbble">
                 <i class="tf-icons bx bx-edit-alt me-1"></i>
               </a>
               <button type="button" class="btn btn-icon btn-outline-dribbble">
@@ -645,7 +654,6 @@
                 © <script>
                   document.write(new Date().getFullYear())
                 </script>
-                , made with ❤️ by <a href="https://themeselection.com/" target="_blank" class="footer-link fw-bolder">ThemeSelection</a>
               </div>
               <div>
 
