@@ -6,6 +6,7 @@ use coding\app\controllers\CategoriesController;
 use coding\app\controllers\HomeController;
 use coding\app\controllers\OffersController;
 use coding\app\controllers\PublishersController;
+use coding\app\controllers\UserPaymentsController;
 use coding\app\system\AppSystem;
 use coding\app\system\Router;
 use coding\app\controllers\UsersController;
@@ -23,27 +24,12 @@ $config=array(
 );
 $system=new AppSystem($config);
 
-/** Home routes */
-Router::get('/', [HomeController::class, 'index']);
-Router::get('/details', [HomeController::class, 'details']);
-Router::get('/checkout', [HomeController::class, 'checkout']);
-Router::get('/category', [HomeController::class, 'category']);
-Router::get('/dashboard', [HomeController::class, 'dash']);
-
 /** web routes  */
-Router::get('/categories',[CategoriesController::class,'listAll']);
-Router::get('/add_category',[CategoriesController::class,'create']);
-Router::get('/edit_category/{id}',[CategoriesController::class,'edit']);
-Router::get('/remove_category/{id}/{name}',[CategoriesController::class,'remove']);
-Router::post('/save_category',[CategoriesController::class,'store']);
-Router::post('/update_category',[CategoriesController::class,'update']);
-
-/** offer routes  */
-Router::get('/offers',[OffersController::class,'listAll']);
-Router::get('/add_offer',[OffersController::class,'create']);
-Router::get('/edit_offer/{id}',[OffersController::class,'edit']);
-Router::get('/remove_offer/{id}/{name}',[OffersController::class,'remove']);
-Router::post('/save_offer',[OffersController::class,'store']);
-Router::post('/update_offer',[OffersController::class,'update']);
+Router::get('/payments',[UserPaymentsController::class,'listAll']);
+Router::get('/add_user_payment',[UserPaymentsController::class,'create']);
+Router::get('/edit_user_payment/{id}',[UserPaymentsController::class,'edit']);
+Router::get('/remove_user_payment/{id}/{name}',[UserPaymentsController::class,'remove']);
+Router::post('/save_user_payment',[UserPaymentsController::class,'store']);
+Router::post('/update_user_payment',[UserPaymentsController::class,'update']);
 
 $system->start();
