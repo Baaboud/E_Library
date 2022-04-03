@@ -2,6 +2,7 @@
 require_once __DIR__ . '/../vendor/autoload.php';
 
 use coding\app\controllers\AuthorsController;
+use coding\app\controllers\BooksController;
 use coding\app\controllers\CategoriesController;
 use coding\app\controllers\HomeController;
 use coding\app\controllers\OffersController;
@@ -24,11 +25,11 @@ $config=array(
 $system=new AppSystem($config);
 
 /** web routes  */
-Router::get('/',[CategoriesController::class,'listAll']);
-Router::get('/add_category',[CategoriesController::class,'create']);
-Router::get('/edit_category/{id}',[CategoriesController::class,'edit']);
-Router::get('/remove_category/{id}/{name}',[CategoriesController::class,'remove']);
-Router::post('/save_category',[CategoriesController::class,'store']);
-Router::post('/update_category',[CategoriesController::class,'update']);
+Router::get('/',[BooksController::class,'listAll']);
+Router::get('/add_book',[BooksController::class,'create']);
+Router::get('/edit_book/{id}',[BooksController::class,'edit']);
+Router::get('/remove_book/{id}/{name}',[BooksController::class,'remove']);
+Router::post('/save_book',[BooksController::class,'store']);
+Router::post('/update_book',[BooksController::class,'update']);
 
 $system->start();
